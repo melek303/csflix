@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './Home.css';
+import React from 'react'
+import './Home.css'
+import Navbar from '../../components/NavBar/Navbar'
+import hero_banner from '../../assets/hero_banner.jpg'
+import hero_title from '../../assets/hero_title.png'
+import play_icon from '../../assets/play_icon.png'
+import info_icon from '../../assets/info_icon.png'
+import TitleCards from '../../components/TitleCards/TitleCards'
+import Footer from '../../components/Footer/Footer'
 
-function Home() {
+const Home = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://react.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='home'>
+      <Navbar/>
+      <div>
+        <img src={hero_banner} alt="" className='banner-img'/>
+        <div className="hero-caption">
+          <img src={hero_title} alt="" className='caption-img'/>
+          <p>Melek </p>
+          <div className="hero-btns">
+            <button className='btn'><img src={play_icon} alt="" />Play</button>
+            <button className='btn dark-btn'><img src={info_icon} alt="" />More Info</button>
+          </div>
+          <TitleCards/>
+        </div>
+      </div>
+      <div className="more-cards">
+        <TitleCards title={"BlockbusterMovie"}/>
+        <TitleCards title={"Only on CSFlix"}/>
+        <TitleCards title={"Upcoming"}/>
+        <TitleCards title={"Top pics for you"}/>
+      </div>
+      <Footer/>
     </div>
-  );
+  )
 }
 
 export default Home;

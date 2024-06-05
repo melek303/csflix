@@ -1,0 +1,28 @@
+.details{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.details img{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    cursor: pointer;
+
+}
+
+.details iframe{
+    border-radius: 10px;
+
+}
+
+.details-info{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}

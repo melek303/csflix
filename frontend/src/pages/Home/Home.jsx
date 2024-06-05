@@ -12,23 +12,13 @@ const Home = () => {
   return (
     <div className='home'>
       <Navbar/>
-      <div>
-        <img src={hero_banner} alt="" className='banner-img'/>
-        <div className="hero-caption">
-          <img src={hero_title} alt="" className='caption-img'/>
-          <p>Melek </p>
-          <div className="hero-btns">
-            <button className='btn'><img src={play_icon} alt="" />Play</button>
-            <button className='btn dark-btn'><img src={info_icon} alt="" />More Info</button>
-          </div>
-          <TitleCards/>
-        </div>
+      <div className="for-you-cards">
+        <TitleCards title={"Selected for you"} />
       </div>
       <div className="more-cards">
-        <TitleCards title={"BlockbusterMovie"}/>
-        <TitleCards title={"Only on CSFlix"}/>
-        <TitleCards title={"Upcoming"}/>
-        <TitleCards title={"Top pics for you"}/>
+        <TitleCards title={"BlockbusterMovie"} category={"top_rated"}/>
+        <TitleCards title={"Only on CSFlix"} category={"popular"}/>
+        <TitleCards title={"Upcoming"} category={"upcoming"}/>
       </div>
       <Footer/>
     </div>

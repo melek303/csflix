@@ -13,17 +13,18 @@
 .navbar-left{
     display:flex;
     align-items: center;
-    gap: 50px;
+    gap: 70px;
 }
 
 .navbar-left img{
     width: 50px;
+    cursor: pointer;
 }
 
 .navbar-left ul{
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 30px;
 
 }
 
@@ -34,7 +35,7 @@
 
 .navbar-right{
     display: flex;
-    gap: 20px;
+    gap: 50px;
     align-items: center;
 
 }
@@ -83,3 +84,38 @@
 .navbar-profile:hover .dropdown{
     display: block;
 }
+
+.nav-dark{
+    background: #141414;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .search-input {
+    width: 800px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #202020;
+    border-radius: 4px;
+    background-color: #646363;
+    color: #d0d0d0;
+  }  
+
+  .search-input::placeholder {
+    color: #d0d0d0; 
+    opacity: 0.7; 
+  }
+
+  .icons:hover {
+    background-color: #323232;
+  }
+
+  .filtrage{
+    position: absolute;
+  }
+
+

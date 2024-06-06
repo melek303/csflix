@@ -15,6 +15,10 @@ const Movie = new typeorm.EntitySchema({
         type: String,
     },
 
+    adult:{
+      type : Boolean
+    },
+
     backdrop_path: {
         type: String,
     },
@@ -24,12 +28,9 @@ const Movie = new typeorm.EntitySchema({
     },
 
     genre_ids: {
-        type: String,
+        type: 'simple-array'
     },
 
-    key: {
-        type: String,
-    },
 
   },
 });

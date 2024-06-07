@@ -8,10 +8,14 @@ import caret_icon from '../../assets/caret_icon.svg'
 import { useNavigate } from 'react-router-dom'
 import {Routes,Route} from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import TitleCards from '../TitleCards/TitleCards';
+import TitleCardsfiltr from '../TitleCardsfiltr/TitleCardsfiltr';
+import TitleCardsRecom from '../TitleCardsRecom/TitleCardsrecom'
 
 
 
-const Navbar = () => {
+const Navbar = ({iduser}) => {
+
 
   const navigate = useNavigate();
 
@@ -19,7 +23,7 @@ const Navbar = () => {
 
   const [query, setQuery] = useState();
 
-  const [showFilterBar, setShowFilterBar] = useState(false);
+
 
   const handleInputChange = (e) => {
     const text = e.target.value;
@@ -29,7 +33,7 @@ const Navbar = () => {
   };
 
   const handleSearch = () => {
-
+    console.log('Search query:', query);
   };
 
   useEffect(()=>{
@@ -42,15 +46,18 @@ const Navbar = () => {
     })
 
   },[])
+  
 
   return (
+    <>
     <div ref= {navRef} className='navbar'>
       <div className="navbar-left">
         <img src={logo} alt="" onClick={()=>{navigate(0)}} />
         <ul>
             <li onClick={()=>{navigate(0)}}>Home</li>
-            <Link to='/movies' >
-              <li> All Movies</li>
+    
+            <Link to='/addmovie'  className='nav-link'>
+              <p> Add Movie</p>
             </Link>
         </ul>
       </div>
@@ -63,24 +70,23 @@ const Navbar = () => {
             value={query}
             onChange={handleInputChange}
           />
-          <img src={search_bar} alt="" className='icons' onClick={handleSearch} />
+
         </div> 
-        <div className="filtrage">
-          {showFilterBar && (
-            <div className="filter-bar">
-              
-            </div>
-          )}
-        </div>
+
         <div className="navbar-profile">
+          <Link to='/signin' className='nav-link'>
+            <p>Add user</p>
+          </Link>
           <img src={profile_img} alt="" className='profile'/>
-          <img src={caret_icon} alt="" className='profile'/>
-          <div className="dropdown">
-            <p>Sign out of CSFlix</p>
-          </div>
         </div>
       </div>
     </div>
+    <div className="search_zone">
+      <TitleCards title="All Movies" category="now_playing" query={query} iduser={iduser}/>
+      <TitleCardsRecom title="Recommmended For You" category={"top_rated"}  iduser={iduser}/>
+      <TitleCardsfiltr title={"Filtered By Language"} category={"filtered"}/> 
+    </div>
+    </>
   )
 }
 

@@ -16,7 +16,9 @@ const User = new typeorm.EntitySchema({
     lastname: { type: String },
     liked_movies :{
       type : "simple-array",
-      default: null
+    },
+    disliked_movies :{
+      type : "simple-array",
     },
     adult :{
       type: Boolean

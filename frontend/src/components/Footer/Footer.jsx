@@ -15,14 +15,9 @@ const Footer = () => {
         <img src={youtube_icon} alt="" />
       </div>
       <ul>
-        <li>Audio description</li>
-        <li>Audio description</li>
-        <li>Audio description</li>
-        <li>Audio description</li>
-        <li>Audio description</li>
-        <li>Audio description</li>
-        <li>Audio description</li>
-        <li>Audio description</li>
+        <li>Ouail EL KHATTABI</li>
+        <li>Melek BEN AMOR</li>
+        <li>Wassim ZOUARI</li>
       </ul>
       <p className='copyright-text'>@ 2024 CSFlix, Inc.</p>
     </div>

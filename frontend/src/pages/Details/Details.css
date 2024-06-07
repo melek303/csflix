@@ -44,6 +44,12 @@
     cursor: pointer;
   }
 
+  
+  .liked {
+    color: red; /* La couleur lorsque l'élément est liké */
+  }
+  
+
   .DisLike{
     color: red;
     cursor: pointer;

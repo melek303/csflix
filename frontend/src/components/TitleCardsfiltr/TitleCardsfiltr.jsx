@@ -33,10 +33,10 @@ const TitleCardsfiltr = ({ title ,iduser}) => {
 
     fetchMovies();
 
-    cardsRef.current.addEventListener('wheel', handleWheel);
+    cardsRef.current?.addEventListener('wheel', handleWheel);
 
     return () => {
-      cardsRef.current.removeEventListener('wheel', handleWheel);
+      cardsRef.current?.removeEventListener('wheel', handleWheel);
     };
   }, []);
 

@@ -8,7 +8,7 @@ function Users() {
 
   return (
     <div className="Users-container">
-      <h1>Sign In to CSFlix</h1>
+      <h1>SignIn CSFlix</h1>
         <AddUserForm onSuccessfulUserCreation={fetchUsers} />
         <UsersTable users={users} onSuccessfulUserDeletion={fetchUsers} />
         {usersLoadingError !== null && (

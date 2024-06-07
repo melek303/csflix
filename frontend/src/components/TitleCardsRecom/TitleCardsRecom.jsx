@@ -59,9 +59,18 @@ const TitleCardsRecom = ({ title, category, query, iduser }) => {
   const calculateSimilarity = (movieA, movieB) => {
     const genresA = new Set(movieA.genre_ids);
     const genresB = new Set(movieB.genre_ids);
+    const languageA = movieA.original_language;
+    const languageB = movieB.original_language;
+  
     const intersection = new Set([...genresA].filter(genre => genresB.has(genre)));
     const union = new Set([...genresA, ...genresB]);
-    return intersection.size / union.size;
+  
+    const genreSimilarity = intersection.size / union.size;
+  
+    // Ajouter 1 à la similarité si les langues sont les mêmes
+    const languageSimilarity = (languageA === languageB) ? 1 : 0;
+  
+    return genreSimilarity + languageSimilarity;
   };
 
   const calculateAverageSimilarity = (targetMovie, likedMovies) => {
@@ -117,9 +126,9 @@ const TitleCardsRecom = ({ title, category, query, iduser }) => {
     fetchMovies();
     fetchUserMoviesAndUpdateRecommendations();
 
-    cardsRef.current.addEventListener('wheel', handleWheel);
+    cardsRef.current?.addEventListener('wheel', handleWheel);
     return () => {
-      cardsRef.current.removeEventListener('wheel', handleWheel);
+      cardsRef.current?.removeEventListener('wheel', handleWheel);
     };
   });
 

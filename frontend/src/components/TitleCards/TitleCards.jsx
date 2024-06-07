@@ -24,15 +24,21 @@ const TitleCards = ({title, category , query, iduser}) => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setMovies(data.movies); 
+        // Assurez-vous que c'est bien un tableau de films
+        const sortedMovies = data.movies.sort((a, b) => {
+          // Assuming release_date is in YYYY-MM-DD format
+          return new Date(b.release_date) - new Date(a.release_date);
+        });
+
+        setMovies(sortedMovies);
       } catch (error) {
         console.error('Error fetching movies:', error);
       }
     };
 
-    fetchMovies();
+    fetchMovies();
 
-    cardsRef.current.addEventListener('wheel',handleWheel)
+    cardsRef.current?.addEventListener('wheel',handleWheel)
 
 })
 

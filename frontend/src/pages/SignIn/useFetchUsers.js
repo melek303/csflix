@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+// Hook personnalisé pour récupérer les utilisateurs depuis une API
 export function useFetchUsers() {
   const [users, setUsers] = useState([]);
   const [usersLoadingError, setUsersLoadingError] = useState(null);
 
+  // Fonction pour récupérer les utilisateurs depuis l'API
   const fetchUsers = () => {
     setUsersLoadingError(null);
 
@@ -19,7 +21,6 @@ export function useFetchUsers() {
       });
   };
 
-  // fetch users on component mount
   useEffect(() => {
     fetchUsers();
   }, []);
